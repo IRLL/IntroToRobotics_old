@@ -1,10 +1,10 @@
 ta_robotics
 ===========
 
-Starting code for various labs
+Starting code for various labs. See the [wiki] (https://github.com/irwineffect/ta_robotics/wiki) for information about various labs
 
 #Getting Started
-Run the following commands to get setup
+Run the following commands to get set up with everything.
 
 To clone this repo:
 ```
@@ -24,7 +24,8 @@ Build the project:
 catkin_make
 ```
 
-Source the environment:
+Add sourcing the environment to your *.bashrc*:
 ```
-source devel/setup.bash
+echo "source `pwd`/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 ```
