@@ -8,7 +8,7 @@ Run the following commands to get setup
 
 To clone this repo:
 ```
-git clone https://github.com/irwineffect/ta_robotics.git
+git clone --recursive https://github.com/irwineffect/ta_robotics.git
 ```
 
 Install dependencies:
