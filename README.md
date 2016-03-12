@@ -15,6 +15,8 @@ Install dependencies:
 ```
 cd ta_robotics
 rosdep install --from-paths src --ignore-src --rosdistro indigo -y
+sudo apt-get install ros-fuerte-joystick-drivers
+rosdep install joy
 ```
 
 Build the project:
