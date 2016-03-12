@@ -8,14 +8,14 @@ Run the following commands to get setup
 
 To clone this repo:
 ```
-git clone git@github.eecs.wsu.edu:jirwin1/ta_robotics.git
+git clone https://github.com/irwineffect/ta_robotics.git
 ```
 
 Install dependencies:
 ```
 cd ta_robotics
 rosdep install --from-paths src --ignore-src --rosdistro indigo -y
-sudo apt-get install ros-fuerte-joystick-drivers
+sudo apt-get install ros-indigo-joystick-drivers
 rosdep install joy
 ```
 
