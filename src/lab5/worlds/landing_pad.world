@@ -18,8 +18,8 @@
     </physics>
 
 
-    <model name='unit_sphere_4'>
-      <pose>3 0 0.1 0 0 0</pose>
+    <model name='landing_pad'>
+      <pose>1 0 0.1 0 0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1000</mass>
