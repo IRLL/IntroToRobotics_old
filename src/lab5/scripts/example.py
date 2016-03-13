@@ -1,5 +1,11 @@
 #!/usr/bin/env python
 
+"""
+Author: James Irwin (james.irwin@wsu.edu)
+Description:
+	Example code for getting started with the ardrone
+"""
+
 import rospy
 from sensor_msgs.msg import Image #for recieving video feed
 from geometry_msgs.msg import Twist # controlling the movements
