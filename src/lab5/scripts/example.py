@@ -10,7 +10,7 @@ import rospy
 from sensor_msgs.msg import Image #for recieving video feed
 from geometry_msgs.msg import Twist # controlling the movements
 from std_msgs.msg import Empty #send empty message for takeoff and landing
-import numpy as np
+import numpy 
 import cv2
 from image_converter import ToOpenCV
 
@@ -23,17 +23,36 @@ class QuadcopterController:
     
     def image_callback(self, image):
         image = ToOpenCV(image)
-        cv2.imshow("camera", image)
-        cv2.waitKey(1)
+        location = self.get_target_location(image)
         #
-        #do vision processing and control logic/commands here
+        #control logic/commands here
+        #location will be a None object if target is not visible
+        #otherwise, location is a tuple (x,y)
         #
-
+        print location
 
         #I'm just telling it to go straight up for now
         twist = Twist() #create new empty twist message
         twist.linear.z = 0.1
         self.movement_pub.publish(twist) #publish message
+
+    def get_target_location(self, image):
+        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        lower_orange = numpy.array([10,10,10])
+        upper_orange = numpy.array([255,255,255])
+        mask = cv2.inRange(hsv, lower_orange, upper_orange)
+        M = cv2.moments(mask)
+        location = None
+        if M['m00'] > 0:
+            cx = int(M['m10']/M['m00'])
+            cy = int(M['m01']/M['m00'])
+            location = (cx, cy)
+            cv2.circle(image, (cx,cy), 3, (0,0,255), -1)
+
+        cv2.imshow("camera", image)
+        cv2.waitKey(1)
+        return location
+
 
 
 
