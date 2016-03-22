@@ -13,7 +13,7 @@ git clone --recursive https://github.com/IRLL/IntroToRobotics.git
 
 Install dependencies:
 ```
-cd robotics_class
+cd IntroToRobotics
 rosdep install --from-paths src --ignore-src --rosdistro indigo -y
 sudo apt-get install ros-indigo-joystick-drivers
 rosdep install joy
